@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://ndvuvw75h2o8"]
 
 [ext_resource type="Script" path="res://code/game_world.cs" id="1_wrtcv"]
-[ext_resource type="Texture2D" uid="uid://bbaxanvqc6xhk" path="res://textures/icon.png" id="1_yga1c"]
 [ext_resource type="Script" path="res://code/Cash.cs" id="2_euht6"]
 [ext_resource type="AudioStream" uid="uid://bf5okq8d6rl65" path="res://sound/sfx/tap.wav" id="3_1yvfi"]
+[ext_resource type="Texture2D" uid="uid://cfhdpjf2xmexw" path="res://textures/northern.jpg" id="4_81i2c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rmeij"]
 
@@ -14,41 +14,136 @@ script = ExtResource("1_wrtcv")
 [node name="Cash" type="Node" parent="."]
 script = ExtResource("2_euht6")
 
+[node name="IncomeTimer" type="Timer" parent="Cash"]
+autostart = true
+
+[node name="BadClick" type="AudioStreamPlayer" parent="Cash"]
+
 [node name="Click" type="AudioStreamPlayer" parent="Cash"]
 stream = ExtResource("3_1yvfi")
 
 [node name="MoneyLabel" type="Label" parent="Cash"]
-offset_left = 343.0
-offset_top = 119.0
-offset_right = 383.0
-offset_bottom = 142.0
+offset_left = 161.0
+offset_top = 89.0
+offset_right = 186.0
+offset_bottom = 112.0
 text = "0"
 label_settings = SubResource("LabelSettings_rmeij")
 
 [node name="Status" type="Label" parent="Cash"]
-offset_left = 235.0
-offset_top = 156.0
-offset_right = 432.0
-offset_bottom = 198.0
+offset_left = 45.0
+offset_top = 122.0
+offset_right = 242.0
+offset_bottom = 164.0
 text = "Status: D
 "
 
+[node name="IncomeLabel" type="Label" parent="Cash"]
+offset_left = 115.0
+offset_top = 53.0
+offset_right = 215.0
+offset_bottom = 76.0
+text = "0 Per Second"
+
 [node name="TextureButton" type="TextureButton" parent="Cash"]
-offset_left = 429.0
-offset_top = 261.0
-offset_right = 613.0
-offset_bottom = 445.0
-texture_normal = ExtResource("1_yga1c")
+offset_left = 65.0
+offset_top = 280.0
+offset_right = 375.0
+offset_bottom = 574.0
+texture_normal = ExtResource("4_81i2c")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Button" type="Button" parent="Cash"]
+offset_left = 698.0
+offset_top = 95.0
+offset_right = 923.0
+offset_bottom = 149.0
+text = "Floran Slaves "
+
+[node name="Button2" type="Button" parent="Cash"]
+offset_left = 698.0
+offset_top = 186.0
+offset_right = 923.0
+offset_bottom = 240.0
+text = "Floran Mining Camps"
+
+[node name="Button3" type="Button" parent="Cash"]
+offset_left = 698.0
+offset_top = 280.0
+offset_right = 923.0
+offset_bottom = 334.0
+text = "Floran Salad Factory"
+
+[node name="Button4" type="Button" parent="Cash"]
+offset_left = 698.0
+offset_top = 375.0
+offset_right = 923.0
+offset_bottom = 425.0
+text = "[Insert Genocide Joke here]"
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 
-[node name="Text1" type="Label" parent="."]
-offset_left = 167.0
-offset_top = -113.0
-offset_right = 276.0
-offset_bottom = -90.0
-text = "Pixels Owned:"
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Text" type="Node" parent="."]
+
+[node name="Text1" type="Label" parent="Text"]
+offset_left = 45.0
+offset_top = 89.0
+offset_right = 154.0
+offset_bottom = 112.0
+text = "Pixels Owned:"
+
+[node name="Text2" type="Label" parent="Text"]
+offset_left = 45.0
+offset_top = 53.0
+offset_right = 107.0
+offset_bottom = 76.0
+text = "Income:"
+
+[node name="Label" type="Label" parent="Text"]
+offset_left = 938.0
+offset_top = 95.0
+offset_right = 1091.0
+offset_bottom = 144.0
+text = "+ 1 pixel per second
+cost : 100 pixels"
+
+[node name="Label2" type="Label" parent="Text"]
+offset_left = 938.0
+offset_top = 186.0
+offset_right = 1091.0
+offset_bottom = 235.0
+text = "+ 5 pixel per second
+cost : 200 pixels"
+
+[node name="Label3" type="Label" parent="Text"]
+offset_left = 938.0
+offset_top = 280.0
+offset_right = 1100.0
+offset_bottom = 329.0
+text = "+ 10 pixel per second
+cost : 500 pixels"
+
+[node name="Label4" type="Label" parent="Text"]
+offset_left = 938.0
+offset_top = 375.0
+offset_right = 1100.0
+offset_bottom = 424.0
+text = "+ 50 pixel per second
+cost : 1000 pixels"
+
+[node name="Label5" type="Label" parent="Text"]
+offset_left = 483.0
+offset_top = 528.0
+offset_right = 892.0
+offset_bottom = 551.0
+text = "Sorry to dissapoint but its literally just a clicker game"
+
+[connection signal="timeout" from="Cash/IncomeTimer" to="Cash" method="_on_income_timer_timeout"]
 [connection signal="pressed" from="Cash/TextureButton" to="Cash" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Cash/Button" to="Cash" method="_on_button_pressed"]
+[connection signal="pressed" from="Cash/Button2" to="Cash" method="_on_button_2_pressed"]
+[connection signal="pressed" from="Cash/Button3" to="Cash" method="_on_button_3_pressed"]
+[connection signal="pressed" from="Cash/Button4" to="Cash" method="_on_button_4_pressed"]

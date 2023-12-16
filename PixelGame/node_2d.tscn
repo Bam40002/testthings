@@ -1,35 +1,68 @@
-[gd_scene load_steps=2 format=3 uid="uid://cf441eyo8sje0"]
+[gd_scene load_steps=3 format=3 uid="uid://cf441eyo8sje0"]
 
 [ext_resource type="Script" path="res://Node2D.cs" id="1_cfq5m"]
+[ext_resource type="FontFile" uid="uid://cmi6j77h0o55s" path="res://font/BACKTO1982.TTF" id="2_4fao8"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_cfq5m")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-261, 359)
+amount = 20
+lifetime = 2.0
+gravity = Vector2(930, 0)
+initial_velocity_min = 767.68
+initial_velocity_max = 767.68
+scale_amount_min = 0.0
+scale_amount_max = 21.2
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2(1286, 346)
+amount = 20
+lifetime = 2.0
+direction = Vector2(-1, 0)
+gravity = Vector2(-930, 0)
+initial_velocity_min = 767.68
+initial_velocity_max = 767.68
+scale_amount_min = 0.0
+scale_amount_max = 21.2
+
 [node name="quit" type="Button" parent="."]
-offset_left = 345.0
-offset_top = 409.0
-offset_right = 815.0
-offset_bottom = 498.0
+offset_left = 347.0
+offset_top = 412.0
+offset_right = 817.0
+offset_bottom = 501.0
 text = "Quit Game
 "
 
 [node name="play" type="Button" parent="."]
 offset_left = 347.0
-offset_top = 297.0
+offset_top = 293.0
 offset_right = 817.0
-offset_bottom = 379.0
+offset_bottom = 375.0
 text = "Play Game
 "
 
 [node name="Label" type="Label" parent="."]
-offset_left = 354.0
-offset_top = 69.0
-offset_right = 808.0
-offset_bottom = 276.0
+offset_left = 165.0
+offset_top = 72.0
+offset_right = 980.0
+offset_bottom = 279.0
 theme_type_variation = &"HeaderLarge"
-text = "Pixel Game - The Game"
+theme_override_fonts/font = ExtResource("2_4fao8")
+theme_override_font_sizes/font_size = 48
+text = "Maple Clicker 2000"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 725.0
+offset_top = 209.0
+offset_right = 929.0
+offset_bottom = 232.0
+text = "A game made by Bam4000"
+
+[node name="TitleMusic" type="AudioStreamPlayer" parent="."]
 
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
