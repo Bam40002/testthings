@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cpca73f0pq8ev"
+path="res://.godot/imported/youre my heart.ogg-971c3b44369da29b44c067bc185d37fe.oggvorbisstr"
+
+[deps]
+
+source_file="res://sound/music/youre my heart.ogg"
+dest_files=["res://.godot/imported/youre my heart.ogg-971c3b44369da29b44c067bc185d37fe.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

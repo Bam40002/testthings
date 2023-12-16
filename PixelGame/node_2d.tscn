@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf441eyo8sje0"]
+
+[ext_resource type="Script" path="res://Node2D.cs" id="1_cfq5m"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_cfq5m")
+
+[node name="quit" type="Button" parent="."]
+offset_left = 345.0
+offset_top = 409.0
+offset_right = 815.0
+offset_bottom = 498.0
+text = "Quit Game
+"
+
+[node name="play" type="Button" parent="."]
+offset_left = 347.0
+offset_top = 297.0
+offset_right = 817.0
+offset_bottom = 379.0
+text = "Play Game
+"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 354.0
+offset_top = 69.0
+offset_right = 808.0
+offset_bottom = 276.0
+theme_type_variation = &"HeaderLarge"
+text = "Pixel Game - The Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
